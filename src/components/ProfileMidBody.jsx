@@ -1,9 +1,8 @@
 import { Button, Col, Image, Nav, Row, Spinner } from "react-bootstrap";
-import ProfilePostCard from "./ProfilePostCard";
-import { useEffect } from "react";
-import { jwtDecode } from "jwt-decode";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPosts } from "../features/posts/postSlice";
+import ProfilePostCard from "./ProfilePostCard";
+import { useContext, useEffect } from "react";
+import { AuthContext, fetchPosts } from "../features/posts/postSlice";
 
 
 export default function ProfileMidBody() {
@@ -14,16 +13,10 @@ export default function ProfileMidBody() {
     const posts = useSelector((state) => state.posts.posts)
     const loading = useSelector((state) => state.posts.loading)
     const dispatch = useDispatch()
-
-
+    const { currentUser } = useContext(AuthContext)
     useEffect(() => {
-        const token = localStorage.getItem('authToken')
-        if (token) {
-            const decodedToken = jwtDecode(token)
-            const userId = decodedToken.id
-            dispatch(fetchPosts(userId))
-        }
-    }, [dispatch])
+        dispatch(fetchPosts(currentUser.uid))
+    }, [dispatch, currentUser])
 
 
 
@@ -85,7 +78,7 @@ export default function ProfileMidBody() {
                 </Nav.Item>
             </Nav>
             {loading && (<Spinner animation='border' className='ms-3 mt-3' variant='primary' />)}
-            {posts.length > 0 && posts.map((post) => (<ProfilePostCard key={post.id} content={post.content} />))}
+            {posts.map((post) => (<ProfilePostCard key={post.id} post={post} />))}
 
 
 
