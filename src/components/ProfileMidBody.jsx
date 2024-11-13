@@ -9,7 +9,7 @@ export default function ProfileMidBody() {
 
 
     const ur = "https://pbs.twimg.com/profile_banners/83072625/1602845571/1500x500";
-    const pic = "https://pbs.twimg.com/profile_images/1587405892437221376/h167Jlb2_400x400.jpg";
+    const pic = "https://res.cloudinary.com/dqcztgs4v/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1731489494/WhatsApp_Image_2024-11-13_at_4.15.52_PM_htd5x8.jpg";
     const posts = useSelector((state) => state.posts.posts)
     const loading = useSelector((state) => state.posts.loading)
     const dispatch = useDispatch()

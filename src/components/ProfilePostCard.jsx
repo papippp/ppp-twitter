@@ -5,7 +5,7 @@ import { AuthContext, likePost, removeLikes, deletePost } from '../features/post
 import UpdatePostModal from './UpdatePostModal'
 
 export default function ProfilePostCard({ post }) {
-    const pic = 'https://pbs.twimg.com/profile_images/1587405892437221376/h167Jlb2_400x400.jpg'
+    const pic = 'https://res.cloudinary.com/dqcztgs4v/image/upload/v1731489494/WhatsApp_Image_2024-11-13_at_4.15.52_PM_htd5x8.jpg'
     const [showUpdateModal, setShowUpdateModal] = useState(false)
     const handleShowUpdateModal = () => setShowUpdateModal(true)
     const handleCloseUpdateModal = () => setShowUpdateModal(false)
