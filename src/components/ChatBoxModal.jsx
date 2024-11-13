@@ -11,7 +11,7 @@ export default function ChatBoxModal({ show, handleClose }) {
     const sendMessage = async (e) => {
         e.preventDefault()
         const API_URL = 'https://api.openai.com/v1/chat/completions'
-        const apiKey = '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'
+        const apiKey = import.meta.env.VITE_CHATBOT_API
         const messagesToSend = [
             ...allMessage,
             {
